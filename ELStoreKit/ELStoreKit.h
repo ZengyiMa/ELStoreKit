@@ -12,13 +12,32 @@
 @interface ELStoreKit : NSObject
 
 
+/**
+ 交易状态发生变化的回调 block
+ */
 @property (nonatomic, copy) void(^transactionStateBlock)(SKPaymentTransactionState state, SKPaymentQueue *queue, SKPaymentTransaction *transaction);
+
+
+/**
+ 请求商品数据的 block
+ */
 @property (nonatomic, copy) BOOL(^productsRequestBlock)(SKRequest *reqeust, SKProductsResponse *response, NSError *error);
 
+/**
+ 查询当前设置是否可以支付
 
+ @return YES 为可以，NO 为不行
+ */
 + (BOOL)canMakePayments;
 
+/**
+ 开启交易监听
+ */
 - (void)startTransaction;
+
+/**
+ 停止交易监听
+ */
 - (void)stopTransaction;
 /**
  添加一个购买项目
@@ -28,7 +47,6 @@
  */
 - (void)addPayment:(NSString *)productIdentifier userInfo:(id<NSCoding>)userInfo;
 @end
-
 
 
 
