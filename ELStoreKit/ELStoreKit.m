@@ -21,7 +21,10 @@
 @implementation ELStoreKit
 
 
-
++ (BOOL)canMakePayments
+{
+    return [SKPaymentQueue canMakePayments];
+}
 
 - (void)startTransaction
 {

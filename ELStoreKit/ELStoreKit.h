@@ -15,10 +15,11 @@
 @property (nonatomic, copy) void(^transactionStateBlock)(SKPaymentTransactionState state, SKPaymentQueue *queue, SKPaymentTransaction *transaction);
 @property (nonatomic, copy) BOOL(^productsRequestBlock)(SKRequest *reqeust, SKProductsResponse *response, NSError *error);
 
+
++ (BOOL)canMakePayments;
+
 - (void)startTransaction;
 - (void)stopTransaction;
-
-
 /**
  添加一个购买项目
 
