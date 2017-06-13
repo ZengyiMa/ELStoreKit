@@ -34,6 +34,8 @@
 @interface SKPaymentTransaction (ELStoreKit)
 - (void)el_finishTransaction;
 - (id)el_userInfo;
+- (NSData *)el_receipt;
+- (NSString *)el_base64Receipt;
 @end
 
 

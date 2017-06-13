@@ -121,4 +121,15 @@
    return [NSKeyedUnarchiver unarchiveObjectWithData:self.payment.requestData];
 }
 
+- (NSData *)el_receipt
+{
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+   return [NSData dataWithContentsOfURL:receiptURL];
+}
+
+- (NSString *)el_base64Receipt
+{
+    return [[self el_receipt] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
 @end
